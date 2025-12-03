@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "cybersafe"
+version = "0.1.0"
+description = "A non-intrusive cybersecurity hygiene checker for websites."
+authors = ["Antigravity <antigravity@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+streamlit = "^1.32.0"
+httpx = "^0.27.0"
+tldextract = "^5.1.0"
+cryptography = "^42.0.0"
+weasyprint = "^61.0"
+jinja2 = "^3.1.0"
+diskcache = "^5.6.0"
+anyio = "^4.3.0"
+# sslyze is optional, but we can include it as an extra or just document it. 
+# For now, let's keep it out of main deps to keep it lightweight as requested, 
+# or add it if the user explicitly wants it. The prompt said "Optional richer TLS analysis: sslyze".
+# We will handle it as an optional import or separate install instruction, but for simplicity in dev,
+# we might want it available if the user enables it. 
+# Let's stick to the prompt: "Optional richer TLS analysis: sslyze ... optional and invoked only when user enables advanced checks."
+# We won't add it here to keep the base install clean, but we will handle the import error gracefully.
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.0"
+black = "^24.0.0"
+flake8 = "^7.0.0"
+isort = "^5.13.0"
+requests-mock = "^1.11.0"
+respx = "^0.20.0" # For mocking httpx
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
