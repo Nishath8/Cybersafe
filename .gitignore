@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.venv/
+env/
+venv/
+dist/
+build/
+*.egg-info/
+.DS_Store
+.env
+poetry.lock
