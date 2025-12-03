@@ -2,7 +2,13 @@ import streamlit as st
 import asyncio
 import tldextract
 import datetime
+import sys
+import os
 from urllib.parse import urlparse
+
+# Fix for Streamlit Cloud: Add project root to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from app.ui import render_sidebar, render_results
 from app.scanner.headers_checker import check_headers
 from app.scanner.tls_checker import check_tls
